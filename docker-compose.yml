@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  web:
+    container_name: tropicalCycloneApi
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 5000:5000
+    restart: always
+    environment:
+      - FLASK_ENV=production
+    depends_on:
+      - db
+      - redis
+  db:
+    container_name: postgres
+    image: postgres:12.1
+    volumes:
+      - ./src/db/schema.sql:/docker-entrypoint-initdb.d/dump.sql
+    ports:
+      - 5432:5432
+    restart: always
+    environment:
+      POSTGRES_USER: donaldwu
+      POSTGRES_PASSWORD: donaldwu
+      POSTGRES_DB: donaldwu
+  redis:
+    container_name: redis
+    image: redis:6.0
+    ports:
+      - 6379:6379
+    restart: always
