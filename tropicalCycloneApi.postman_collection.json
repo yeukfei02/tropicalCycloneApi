@@ -33,7 +33,58 @@
 				},
 				"description": "/tropical-cyclone"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "/tropical-cyclone",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"place\": \"test\",\n    \"descriptionText\": \"test2\",\n    \"image\": \"test3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/tropical-cyclone",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tropical-cyclone"
+							]
+						}
+					},
+					"status": "CREATED",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Sep 2020 06:19:42 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "waitress"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"create tropical cyclone\"\n}"
+				}
+			]
 		},
 		{
 			"name": "/tropical-cyclone",
@@ -65,7 +116,58 @@
 				},
 				"description": "/tropical-cyclone"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "/tropical-cyclone",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/tropical-cyclone",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tropical-cyclone"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "470"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Sep 2020 06:19:53 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "waitress"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"get all tropical cyclone\",\n    \"tropicalCyclones\": [\n        {\n            \"created_by\": \"2020-09-06 06:19:41.278719\",\n            \"description_text\": \"test2\",\n            \"image\": \"test3\",\n            \"place\": \"test\",\n            \"updated_by\": \"2020-09-06 06:19:41.278719\"\n        },\n        {\n            \"created_by\": \"2020-09-06 06:19:42.260888\",\n            \"description_text\": \"test2\",\n            \"image\": \"test3\",\n            \"place\": \"test\",\n            \"updated_by\": \"2020-09-06 06:19:42.260888\"\n        }\n    ]\n}"
+				}
+			]
 		},
 		{
 			"name": "/tropical-cyclone/{id}",
@@ -98,7 +200,59 @@
 				},
 				"description": "/tropical-cyclone/{id}"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "/tropical-cyclone/{id}",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/tropical-cyclone/1",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tropical-cyclone",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "250"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Sep 2020 06:19:47 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "waitress"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"get tropical cyclone by id\",\n    \"tropicalCyclone\": {\n        \"created_by\": \"2020-09-06 06:19:41.278719\",\n        \"description_text\": \"test2\",\n        \"image\": \"test3\",\n        \"place\": \"test\",\n        \"updated_by\": \"2020-09-06 06:19:41.278719\"\n    }\n}"
+				}
+			]
 		},
 		{
 			"name": "/tropical-cyclone/{id}",
@@ -128,7 +282,59 @@
 				},
 				"description": "/tropical-cyclone/{id}"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "/tropical-cyclone/{id}",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"place\": \"aaa1\",\n    \"descriptionText\": \"bbb1\",\n    \"image\": \"ccc1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/tropical-cyclone/2",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tropical-cyclone",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "49"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Sep 2020 06:19:48 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "waitress"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"update tropical cyclone by id\"\n}"
+				}
+			]
 		},
 		{
 			"name": "/tropical-cyclone/{id}",
@@ -158,7 +364,59 @@
 				},
 				"description": "/tropical-cyclone/{id}"
 			},
-			"response": []
+			"response": [
+				{
+					"name": "/tropical-cyclone/{id}",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/tropical-cyclone/2",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tropical-cyclone",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "49"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 06 Sep 2020 06:19:50 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "waitress"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"delete tropical cyclone by id\"\n}"
+				}
+			]
 		}
 	],
 	"protocolProfileBehavior": {}
