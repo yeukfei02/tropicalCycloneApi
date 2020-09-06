@@ -8,4 +8,4 @@ COPY ./ .
 
 RUN pip3 install -r requirements.txt
 
-CMD [ "sh", "run-celery.sh" ]
+CMD [ "celery", "worker", "-A", "app.celery", "--loglevel=info", "--purge" ]

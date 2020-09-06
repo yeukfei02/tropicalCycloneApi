@@ -37,11 +37,26 @@ services:
       - 6379:6379
     restart: always
 
-  celery:
-    container_name: celery
+  celery-worker:
+    container_name: celery-worker
     build:
       context: .
-      dockerfile: Dockerfile-celery
+      dockerfile: Dockerfile-celery-worker
+    volumes:
+      - .:/usr/src/app
+    restart: always
+    environment:
+      - FLASK_ENV=production
+    depends_on:
+      - web
+      - db
+      - redis
+
+  celery-beat:
+    container_name: celery-beat
+    build:
+      context: .
+      dockerfile: Dockerfile-celery-beat
     volumes:
       - .:/usr/src/app
     restart: always
