@@ -10,7 +10,7 @@ from src.models.TropicalCyclone import *
 flask_env = os.environ.get('FLASK_ENV')
 CELERY_BROKER_URL = ""
 CELERY_RESULT_BACKEND = ""
-if (flask_env == 'development'):
+if flask_env == 'development':
     CELERY_BROKER_URL = "redis://localhost:6379/0"
     CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
 else:
