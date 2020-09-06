@@ -17,7 +17,7 @@ def create_tropical_cyclone():
         db.session.commit()
 
     data = {
-        "message": "create tropical cyclone api",
+        "message": "create tropical cyclone",
     }
     return make_response(data, 201)
 
@@ -37,7 +37,7 @@ def get_all_tropical_cyclone():
         formatted_tropical_cyclone_list.append(obj)
 
     data = {
-        "message": "get all tropical cyclone api",
+        "message": "get all tropical cyclone",
         "tropicalCyclones": formatted_tropical_cyclone_list
     }
     return make_response(data, 200)
@@ -58,13 +58,13 @@ def get_tropical_cyclone_by_id(id):
             }
 
             data = {
-                "message": "get tropical cyclone by id api",
+                "message": "get tropical cyclone by id",
                 "tropicalCyclone": obj
             }
             return make_response(data, 200)
         else:
             data = {
-                "message": "get tropical cyclone by id api",
+                "message": "get tropical cyclone by id",
                 "tropicalCyclone": {}
             }
             return make_response(data, 200)
@@ -88,7 +88,7 @@ def update_tropical_cyclone_by_id(id):
                 db.session.commit()
 
                 data = {
-                    "message": "update tropical cyclone by id api",
+                    "message": "update tropical cyclone by id",
                 }
                 return make_response(data, 200)
         else:
@@ -108,7 +108,7 @@ def delete_tropical_cyclone_by_id(id):
             db.session.commit()
 
             data = {
-                "message": "delete tropical cyclone by id api",
+                "message": "delete tropical cyclone by id",
             }
             return make_response(data, 200)
         else:
