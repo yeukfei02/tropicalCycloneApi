@@ -1,6 +1,6 @@
 from celery import Celery
-from celery.schedules import crontab
 import os
+from datetime import timedelta
 
 from app import app, db
 
@@ -21,16 +21,16 @@ def make_celery(app):
     app.config['CELERY_BROKER_URL'] = CELERY_BROKER_URL
     app.config['CELERY_RESULT_BACKEND'] = CELERY_RESULT_BACKEND
     app.config['CELERYBEAT_SCHEDULE'] = {
-        # Executes every minute
-        'periodic_task-every-minute': {
+        # Executes every hour
+        'periodic-task-every-hour': {
             'task': 'periodic_task',
-            'schedule': crontab(minute="*")
+            'schedule': timedelta(minutes=60),
         }
     }
     app.config['CELERY_TRACK_STARTED'] = True
     app.config['CELERY_SEND_EVENTS'] = True
 
-    celery = Celery(app.import_name, backend=app.config['CELERY_RESULT_BACKEND'], broker=app.config['CELERY_BROKER_URL'])
+    celery = Celery(app.import_name, backend=CELERY_RESULT_BACKEND, broker=CELERY_BROKER_URL)
     celery.conf.update(app.config)
 
     TaskBase = celery.Task
@@ -47,5 +47,6 @@ celery = make_celery(app)
 
 @celery.task(name = "periodic_task")
 def periodic_task():
-    print(123123)
+    print("get_scrape_web_data start")
     get_scrape_web_data(TropicalCyclone, db)
+    print("get_scrape_web_data end")
