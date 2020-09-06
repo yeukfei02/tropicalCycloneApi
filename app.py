@@ -1,6 +1,7 @@
 from flask import Flask, request, make_response
 from flask_sqlalchemy import SQLAlchemy
 import os
+from waitress import serve
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -8,7 +9,7 @@ load_dotenv()
 flask_env = os.environ.get('FLASK_ENV')
 
 DB_CONFIG = {}
-if (flask_env == 'development'):
+if flask_env == 'development':
     DB_CONFIG = {
         'user': 'donaldwu',
         'pw': '',
@@ -21,7 +22,7 @@ else:
         'user': 'donaldwu',
         'pw': 'donaldwu',
         'db': 'donaldwu',
-        'host': 'postgres',
+        'host': 'db',
         'port': '5432',
     }
 
@@ -39,4 +40,7 @@ from src.routes.tropical_cyclone import *
 from src.cron.cron import *
 
 if __name__ == '__main__':
-    app.run()
+    if flask_env == 'development':
+        app.run()
+    else:
+        serve(app, host="0.0.0.0", port=5000)

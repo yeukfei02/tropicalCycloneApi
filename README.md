@@ -14,12 +14,15 @@ tropicalCycloneApi
 ```
 // use requirements.txt
 $ pip3 install -r requirements.txt
-$ python3 app.py
 
 // use pipenv
 $ pipenv install
 $ pipenv shell
+
+// run api
 $ python3 app.py
+or 
+$ flask run
 
 // create db migration
 $ python3 manage.py db init
