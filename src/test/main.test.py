@@ -26,6 +26,8 @@ class MainTest(unittest.TestCase):
         now = datetime.now()
 
         tropical_cyclone = TropicalCyclone(place, description_text, image, now, now)
+        db.session.add(tropical_cyclone)
+        db.session.commit()
 
         self.assertTrue(tropical_cyclone is not None)
 
@@ -68,6 +70,10 @@ class MainTest(unittest.TestCase):
             self.assertIsNotNone(tropical_cyclone.image)
             self.assertIsNotNone(str(tropical_cyclone.created_by))
             self.assertIsNotNone(str(tropical_cyclone.updated_by))
+
+            self.assertEqual(tropical_cyclone.place, "test")
+            self.assertEqual(tropical_cyclone.description_text, "test2")
+            self.assertEqual(tropical_cyclone.image, "test3")
         
         print('test_003_get_tropical_cyclone_by_id end')
 
@@ -84,7 +90,6 @@ class MainTest(unittest.TestCase):
             image = "ccc"
             now = datetime.now()
 
-            tropical_cyclone = TropicalCyclone(place, description_text, image, now, now)
             tropical_cyclone.place = place
             tropical_cyclone.description_text = description_text
             tropical_cyclone.image = image
@@ -96,6 +101,10 @@ class MainTest(unittest.TestCase):
             self.assertIsNotNone(tropical_cyclone.image)
             self.assertIsNotNone(str(tropical_cyclone.created_by))
             self.assertIsNotNone(str(tropical_cyclone.updated_by))
+
+            self.assertEqual(tropical_cyclone.place, "aaa")
+            self.assertEqual(tropical_cyclone.description_text, "bbb")
+            self.assertEqual(tropical_cyclone.image, "ccc")
         
         print('test_004_update_tropical_cyclone_by_id end')
 
