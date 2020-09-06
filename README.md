@@ -25,6 +25,14 @@ $ python3 app.py
 $ python3 manage.py db init
 $ python3 manage.py db migrate
 
+// run cron job
+$ celery worker -A app.celery --loglevel=info --purge
+$ celery beat -A app.celery --loglevel=info
+
+// check schedule job in flower dashboard
+$ flower -A app.celery --port=5555
+open localhost:5555
+
 // run test case
 $ python3 src/test/main.test.py
 ```

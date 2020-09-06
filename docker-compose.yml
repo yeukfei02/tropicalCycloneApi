@@ -16,6 +16,7 @@ services:
     depends_on:
       - db
       - redis
+
   db:
     container_name: postgres
     image: postgres:12.1
@@ -28,9 +29,42 @@ services:
       POSTGRES_USER: donaldwu
       POSTGRES_PASSWORD: donaldwu
       POSTGRES_DB: donaldwu
+
   redis:
     container_name: redis
     image: redis:6.0
     ports:
       - 6379:6379
     restart: always
+
+  celery:
+    container_name: celery
+    build:
+      context: .
+      dockerfile: Dockerfile-celery
+    volumes:
+      - .:/usr/src/app
+    restart: always
+    environment:
+      - FLASK_ENV=production
+    depends_on:
+      - web
+      - db
+      - redis
+
+  flower:
+    container_name: flower
+    build:
+      context: .
+      dockerfile: Dockerfile-flower
+    volumes:
+      - .:/usr/src/app
+    restart: always
+    environment:
+      - FLASK_ENV=production
+    ports:
+     - 5555:5555
+    depends_on:
+      - web
+      - db
+      - redis
