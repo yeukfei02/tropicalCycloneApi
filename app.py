@@ -21,7 +21,7 @@ else:
         'user': 'donaldwu',
         'pw': 'donaldwu',
         'db': 'donaldwu',
-        'host': 'db',
+        'host': 'postgres',
         'port': '5432',
     }
 
