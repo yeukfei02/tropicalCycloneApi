@@ -20,8 +20,6 @@ services:
   db:
     container_name: postgres
     image: postgres:12.1
-    volumes:
-      - ./src/db/schema.sql:/docker-entrypoint-initdb.d/dump.sql
     ports:
       - 5432:5432
     restart: always
