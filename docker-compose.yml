@@ -41,7 +41,7 @@ services:
     container_name: celery-worker
     build:
       context: .
-      dockerfile: Dockerfile-celery-worker
+    command: celery worker -A app.celery --loglevel=info --purge
     volumes:
       - .:/usr/src/app
     restart: always
@@ -56,7 +56,7 @@ services:
     container_name: celery-beat
     build:
       context: .
-      dockerfile: Dockerfile-celery-beat
+    command: celery beat -A app.celery --loglevel=info
     volumes:
       - .:/usr/src/app
     restart: always
@@ -71,7 +71,7 @@ services:
     container_name: flower
     build:
       context: .
-      dockerfile: Dockerfile-flower
+    command: flower -A app.celery --port=5555
     volumes:
       - .:/usr/src/app
     restart: always
