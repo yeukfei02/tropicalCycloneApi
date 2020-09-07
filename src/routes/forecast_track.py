@@ -47,12 +47,42 @@ def get_all_forecast_track():
     }
     return make_response(data, 200)
 
-@app.route('/api/forecast-track/<id>', methods=['GET'])
-def get_forecast_track_by_id(id):
-    id = request.view_args["id"]
+# @app.route('/api/forecast-track/<id>', methods=['GET'])
+# def get_forecast_track_by_id(id):
+#     id = request.view_args["id"]
+
+#     if id is not None:
+#         forecast_track = ForecastTrack.query.filter_by(forecast_track_id=id).first()
+#         if forecast_track:
+#             obj = {
+#                 "id": forecast_track.forecast_track_id,
+#                 "description_id": forecast_track.description_id,
+#                 "forecast_hour": forecast_track.forecast_hour,
+#                 "latitude": forecast_track.latitude,
+#                 "longitude": forecast_track.longitude,
+#                 "intensity": forecast_track.intensity,
+#                 "created_by": str(forecast_track.created_by),
+#                 "updated_by": str(forecast_track.updated_by)
+#             }
+
+#             data = {
+#                 "message": "get forecast track by id",
+#                 "forecastTrack": obj
+#             }
+#             return make_response(data, 200)
+#         else:
+#             data = {
+#                 "message": "get forecast track by id",
+#                 "forecastTrack": {}
+#             }
+#             return make_response(data, 200)
+
+@app.route('/api/forecast-track/<descriptionId>', methods=['GET'])
+def get_forecast_track_by_description_id(descriptionId):
+    description_id = request.view_args["descriptionId"]
 
     if id is not None:
-        forecast_track = ForecastTrack.query.filter_by(forecast_track_id=id).first()
+        forecast_track = ForecastTrack.query.filter_by(description_id=description_id).first()
         if forecast_track:
             obj = {
                 "id": forecast_track.forecast_track_id,
@@ -66,13 +96,13 @@ def get_forecast_track_by_id(id):
             }
 
             data = {
-                "message": "get forecast track by id",
+                "message": "get forecast track by description_id",
                 "forecastTrack": obj
             }
             return make_response(data, 200)
         else:
             data = {
-                "message": "get forecast track by id",
+                "message": "get forecast track by description_id",
                 "forecastTrack": {}
             }
             return make_response(data, 200)
