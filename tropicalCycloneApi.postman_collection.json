@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"place\": \"test\",\n    \"descriptionText\": \"test2\",\n    \"image\": \"test3\"\n}",
+					"raw": "{\n    \"place\": \"test\",\n    \"descriptionId\": \"test2\",\n    \"descriptionText\": \"test3\",\n    \"image\": \"test5\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -153,7 +153,7 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "5725"
+							"value": "569"
 						},
 						{
 							"key": "Server",
@@ -161,11 +161,11 @@
 						},
 						{
 							"key": "Date",
-							"value": "Mon, 07 Sep 2020 06:24:50 GMT"
+							"value": "Mon, 07 Sep 2020 07:24:02 GMT"
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"message\": \"get all tropical cyclone\",\n    \"tropicalCyclones\": [\n        {\n            \"created_by\": \"2020-09-06 15:23:54.339552\",\n            \"description_text\": \"test2\",\n            \"id\": 1,\n            \"image\": \"test3\",\n            \"place\": \"test\",\n            \"updated_by\": \"2020-09-06 15:23:54.339552\"\n        },\n        {\n            \"created_by\": \"2020-09-06 15:25:31.596876\",\n            \"description_text\": \"AL922020 - INVEST\",\n            \"id\": 3,\n            \"image\": \"https://rammb-data.cira.colostate.edu//tc_realtime/products/storms/2020al92/4kmirimg/2020al92_4kmirimg_202009060700.gif\",\n            \"place\": \"Atlantic\",\n            \"updated_by\": \"2020-09-06 15:25:31.596876\"\n        },\n        {\n            \"created_by\": \"2020-09-06 15:25:31.604575\",\n            \"description_text\": \"EP152020 - Tropical Storm JULIO\",\n            \"id\": 4,\n            \"image\": \"https://rammb-data.cira.colostate.edu//tc_realtime/products/storms/2020ep15/4kmirimg/2020ep15_4kmirimg_202009060700.gif\",\n            \"place\": \"Eastern Pacific\",\n            \"updated_by\": \"2020-09-06 15:25:31.604575\"\n        },\n        {\n            \"created_by\": \"2020-09-06 15:25:31.606366\",\n            \"description_text\": \"WP112020 - Typhoon HAISHEN\",\n            \"id\": 5,\n            \"image\": \"https://rammb-data.cira.colostate.edu//tc_realtime/products/storms/2020wp11/4kmirimg/2020wp11_4kmirimg_202009060640.gif\",\n            \"place\": \"Central Pacific\",\n            \"updated_by\": \"2020-09-06 15:25:31.606366\"\n        },\n        {\n            \"created_by\": \"2020-09-06 15:25:47.632270\",\n            \"description_text\": \"test2\",\n            \"id\": 6,\n            \"image\": \"test3\",\n            \"place\": \"test\",\n            \"updated_by\": \"2020-09-06 15:25:47.632270\"\n        },\n        {\n            \"created_by\": \"2020-09-06 15:26:25.565650\",\n            \"description_text\": \"AL922020 - INVEST\",\n            \"id\": 7,\n            \"image\": \"https://rammb-data.cira.colostate.edu//tc_realtime/products/storms/2020al92/4kmirimg/2020al92_4kmirimg_202009060700.gif\",\n            \"place\": \"Atlantic\",\n            \"updated_by\": \"2020-09-06 15:26:25.565650\"\n        },\n        {\n            \"created_by\": \"2020-09-06 15:26:25.568176\",\n            \"description_text\": \"EP152020 - Tropical Storm JULIO\",\n            \"id\": 8,\n            \"image\": \"https://rammb-data.cira.colostate.edu//tc_realtime/products/storms/2020ep15/4kmirimg/2020ep15_4kmirimg_202009060700.gif\",\n            \"place\": \"Eastern Pacific\",\n            \"updated_by\": \"2020-09-06 15:26:25.568176\"\n        },\n        {\n            \"created_by\": \"2020-09-06 15:26:25.569975\",\n            \"description_text\": \"WP112020 - Typhoon HAISHEN\",\n            \"id\": 9,\n            \"image\": \"https://rammb-data.cira.colostate.edu//tc_realtime/products/storms/2020wp11/4kmirimg/2020wp11_4kmirimg_202009060640.gif\",\n            \"place\": \"Central Pacific\",\n            \"updated_by\": \"2020-09-06 15:26:25.569975\"\n        },\n        {\n            \"created_by\": \"2020-09-06 16:33:18.632018\",\n            \"description_text\": \"AL922020 - INVEST\",\n            \"id\": 10,\n            \"image\": \"https://rammb-data.cira.colostate.edu//tc_realtime/products/storms/2020al92/4kmirimg/2020al92_4kmirimg_202009060800.gif\",\n            \"place\": \"Atlantic\",\n            \"updated_by\": \"2020-09-06 16:33:18.632018\"\n        },\n        {\n            \"created_by\": \"2020-09-06 16:33:18.648047\",\n            \"description_text\": \"EP152020 - Tropical Storm JULIO\",\n            \"id\": 11,\n            \"image\": \"https://rammb-data.cira.colostate.edu//tc_realtime/products/storms/2020ep15/4kmirimg/2020ep15_4kmirimg_202009060800.gif\",\n            \"place\": \"Eastern Pacific\",\n            \"updated_by\": \"2020-09-06 16:33:18.648047\"\n        },\n        {\n            \"created_by\": \"2020-09-06 16:33:18.649502\",\n            \"description_text\": \"WP112020 - Typhoon HAISHEN\",\n            \"id\": 12,\n            \"image\": \"https://rammb-data.cira.colostate.edu//tc_realtime/products/storms/2020wp11/4kmirimg/2020wp11_4kmirimg_202009060800.gif\",\n            \"place\": \"Central Pacific\",\n            \"updated_by\": \"2020-09-06 16:33:18.649502\"\n        },\n        {\n            \"created_by\": \"2020-09-06 16:34:22.323595\",\n            \"description_text\": \"AL922020 - INVEST\",\n            \"id\": 13,\n            \"image\": \"https://rammb-data.cira.colostate.edu//tc_realtime/products/storms/2020al92/4kmirimg/2020al92_4kmirimg_202009060800.gif\",\n            \"place\": \"Atlantic\",\n            \"updated_by\": \"2020-09-06 16:34:22.323595\"\n        },\n        {\n            \"created_by\": \"2020-09-06 16:34:22.326042\",\n            \"description_text\": \"EP152020 - Tropical Storm JULIO\",\n            \"id\": 14,\n            \"image\": \"https://rammb-data.cira.colostate.edu//tc_realtime/products/storms/2020ep15/4kmirimg/2020ep15_4kmirimg_202009060800.gif\",\n            \"place\": \"Eastern Pacific\",\n            \"updated_by\": \"2020-09-06 16:34:22.326042\"\n        },\n        {\n            \"created_by\": \"2020-09-06 16:34:22.327756\",\n            \"description_text\": \"WP112020 - Typhoon HAISHEN\",\n            \"id\": 15,\n            \"image\": \"https://rammb-data.cira.colostate.edu//tc_realtime/products/storms/2020wp11/4kmirimg/2020wp11_4kmirimg_202009060800.gif\",\n            \"place\": \"Central Pacific\",\n            \"updated_by\": \"2020-09-06 16:34:22.327756\"\n        },\n        {\n            \"created_by\": \"2020-09-06 16:35:16.131176\",\n            \"description_text\": \"AL922020 - INVEST\",\n            \"id\": 16,\n            \"image\": \"https://rammb-data.cira.colostate.edu//tc_realtime/products/storms/2020al92/4kmirimg/2020al92_4kmirimg_202009060800.gif\",\n            \"place\": \"Atlantic\",\n            \"updated_by\": \"2020-09-06 16:35:16.131176\"\n        },\n        {\n            \"created_by\": \"2020-09-06 16:35:16.133197\",\n            \"description_text\": \"EP152020 - Tropical Storm JULIO\",\n            \"id\": 17,\n            \"image\": \"https://rammb-data.cira.colostate.edu//tc_realtime/products/storms/2020ep15/4kmirimg/2020ep15_4kmirimg_202009060800.gif\",\n            \"place\": \"Eastern Pacific\",\n            \"updated_by\": \"2020-09-06 16:35:16.133197\"\n        },\n        {\n            \"created_by\": \"2020-09-06 16:40:00.968408\",\n            \"description_text\": \"test2\",\n            \"id\": 19,\n            \"image\": \"test3\",\n            \"place\": \"test\",\n            \"updated_by\": \"2020-09-06 16:40:00.968408\"\n        }\n    ]\n}"
+					"body": "{\n    \"message\": \"get all tropical cyclone\",\n    \"tropicalCyclones\": [\n        {\n            \"created_by\": \"2020-09-07 15:23:29.311391\",\n            \"description_id\": \"asdasd\",\n            \"description_text\": \"bbb1\",\n            \"id\": 1,\n            \"image\": \"ccc1\",\n            \"place\": \"aaa1\",\n            \"updated_by\": \"2020-09-07 15:23:59.748699\"\n        },\n        {\n            \"created_by\": \"2020-09-07 15:23:41.560586\",\n            \"description_id\": \"test2\",\n            \"description_text\": \"test3\",\n            \"id\": 2,\n            \"image\": \"test5\",\n            \"place\": \"test\",\n            \"updated_by\": \"2020-09-07 15:23:41.560586\"\n        }\n    ]\n}"
 				}
 			]
 		},
@@ -238,7 +238,7 @@
 						},
 						{
 							"key": "Content-Length",
-							"value": "264"
+							"value": "295"
 						},
 						{
 							"key": "Server",
@@ -246,11 +246,11 @@
 						},
 						{
 							"key": "Date",
-							"value": "Mon, 07 Sep 2020 06:25:13 GMT"
+							"value": "Mon, 07 Sep 2020 07:24:10 GMT"
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"message\": \"get tropical cyclone by id\",\n    \"tropicalCyclone\": {\n        \"created_by\": \"2020-09-06 15:23:54.339552\",\n        \"description_text\": \"test2\",\n        \"id\": 1,\n        \"image\": \"test3\",\n        \"place\": \"test\",\n        \"updated_by\": \"2020-09-06 15:23:54.339552\"\n    }\n}"
+					"body": "{\n    \"message\": \"get tropical cyclone by id\",\n    \"tropicalCyclone\": {\n        \"created_by\": \"2020-09-07 15:23:29.311391\",\n        \"description_id\": \"asdasd\",\n        \"description_text\": \"bbb1\",\n        \"id\": 1,\n        \"image\": \"ccc1\",\n        \"place\": \"aaa1\",\n        \"updated_by\": \"2020-09-07 15:23:59.748699\"\n    }\n}"
 				}
 			]
 		},
@@ -261,7 +261,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"place\": \"aaa1\",\n    \"descriptionText\": \"bbb1\",\n    \"image\": \"ccc1\"\n}",
+					"raw": "{\n    \"place\": \"aaa1\",\n    \"descriptionId\": \"asdasd\",\n    \"descriptionText\": \"bbb1\",\n    \"image\": \"ccc1\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -269,7 +269,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:5000/api/tropical-cyclone/2",
+					"raw": "localhost:5000/api/tropical-cyclone/1",
 					"host": [
 						"localhost"
 					],
@@ -277,7 +277,7 @@
 					"path": [
 						"api",
 						"tropical-cyclone",
-						"2"
+						"1"
 					]
 				},
 				"description": "/tropical-cyclone/{id}"

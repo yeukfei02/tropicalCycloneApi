@@ -5,13 +5,15 @@ class TropicalCyclone(db.Model):
 
     tropical_cyclone_id = db.Column(db.Integer, primary_key=True)
     place = db.Column(db.String(255), nullable=True)
+    description_id = db.Column(db.String(255), nullable=True)
     description_text = db.Column(db.String(255), nullable=True)
     image = db.Column(db.String(255), nullable=True)
     created_by = db.Column(db.TIMESTAMP, server_default=db.func.now())
     updated_by = db.Column(db.TIMESTAMP, server_default=db.func.now())
 
-    def __init__(self, place, description_text, image, created_by, updated_by):
+    def __init__(self, place, description_id, description_text, image, created_by, updated_by):
         self.place = place
+        self.description_id = description_id
         self.description_text = description_text
         self.image = image
         self.created_by = created_by

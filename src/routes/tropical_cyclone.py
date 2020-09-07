@@ -8,11 +8,12 @@ from src.models.TropicalCyclone import *
 def create_tropical_cyclone():
     if request.json:
         place = request.json['place']
+        description_id = request.json['descriptionId']
         description_text = request.json['descriptionText']
         image = request.json['image']
         now = datetime.now()
 
-        tropical_cyclone = TropicalCyclone(place, description_text, image, now, now)
+        tropical_cyclone = TropicalCyclone(place, description_id, description_text, image, now, now)
         db.session.add(tropical_cyclone)
         db.session.commit()
 
@@ -30,6 +31,7 @@ def get_all_tropical_cyclone():
         obj = {
             "id": tropical_cyclone.tropical_cyclone_id,
             "place": tropical_cyclone.place,
+            "description_id": tropical_cyclone.description_id,
             "description_text": tropical_cyclone.description_text,
             "image": tropical_cyclone.image,
             "created_by": str(tropical_cyclone.created_by),
@@ -53,6 +55,7 @@ def get_tropical_cyclone_by_id(id):
             obj = {
                 "id": tropical_cyclone.tropical_cyclone_id,
                 "place": tropical_cyclone.place,
+                "description_id": tropical_cyclone.description_id,
                 "description_text": tropical_cyclone.description_text,
                 "image": tropical_cyclone.image,
                 "created_by": str(tropical_cyclone.created_by),
@@ -80,12 +83,14 @@ def update_tropical_cyclone_by_id(id):
         if tropical_cyclone:
             if request.json:
                 place = request.json['place']
+                description_id = request.json['descriptionId']
                 description_text = request.json['descriptionText']
                 image = request.json['image']
 
                 now = datetime.now()
 
                 tropical_cyclone.place = place
+                tropical_cyclone.description_id = description_id
                 tropical_cyclone.description_text = description_text
                 tropical_cyclone.image = image
                 tropical_cyclone.updated_by = now
