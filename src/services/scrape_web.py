@@ -21,6 +21,13 @@ def get_scrape_web_data(TropicalCyclone, db):
             if "AL" in description_text or "EP" in description_text or "WP" in description_text or "CP" in description_text or "NIO" in description_text or "SH" in description_text:
                 new_description_text = re.sub('\s+', ' ', description_text).strip()
                 formatted_description_text_list.append(new_description_text)
+    
+    # description id
+    description_id_list = []
+    if formatted_description_text_list:
+        for formatted_description_text in formatted_description_text_list:
+            description_id = formatted_description_text[:8].strip()
+            description_id_list.append(description_id)
 
     # images
     images_list = [element for element in soup.find_all("img", {"src": True})]
@@ -32,17 +39,18 @@ def get_scrape_web_data(TropicalCyclone, db):
             formatted_images_list.append(image_src)
 
     # combined_list
-    if places_list and formatted_description_text_list and formatted_images_list:
-        combined_list = [list(e) for e in zip(places_list, formatted_description_text_list, formatted_images_list)]
+    if places_list and formatted_description_text_list and description_id_list and formatted_images_list:
+        combined_list = [list(e) for e in zip(places_list, formatted_description_text_list, description_id_list, formatted_images_list)]
         for item in combined_list:
             place = item[0]
             description_text = item[1]
-            image = item[2]
+            description_id = item[2]
+            image = item[3]
             now = datetime.now()
 
             # add record to db
-            existing_tropical_cyclone = TropicalCyclone.query.filter_by(description_text=description_text).first()
+            existing_tropical_cyclone = TropicalCyclone.query.filter_by(description_id=description_id).first()
             if existing_tropical_cyclone is None:
-                tropical_cyclone = TropicalCyclone(place, description_text, image, now, now)
+                tropical_cyclone = TropicalCyclone(place, description_id, description_text, image, now, now)
                 db.session.add(tropical_cyclone)
                 db.session.commit()
