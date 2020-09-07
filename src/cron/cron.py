@@ -6,6 +6,8 @@ from app import app, db
 
 from src.services.scrape_web import get_scrape_web_data
 from src.models.TropicalCyclone import *
+from src.models.ForecastTrack import *
+from src.models.TrackHistory import *
 
 flask_env = os.environ.get('FLASK_ENV')
 CELERY_BROKER_URL = ""
@@ -48,5 +50,5 @@ celery = make_celery(app)
 @celery.task(name = "periodic_task")
 def periodic_task():
     print("get_scrape_web_data start")
-    get_scrape_web_data(TropicalCyclone, db)
+    get_scrape_web_data(TropicalCyclone, ForecastTrack, TrackHistory, db)
     print("get_scrape_web_data end")
