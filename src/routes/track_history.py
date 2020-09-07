@@ -47,12 +47,42 @@ def get_all_track_history():
     }
     return make_response(data, 200)
 
-@app.route('/api/track-history/<id>', methods=['GET'])
-def get_track_history_by_id(id):
-    id = request.view_args["id"]
+# @app.route('/api/track-history/<id>', methods=['GET'])
+# def get_track_history_by_id(id):
+#     id = request.view_args["id"]
 
-    if id is not None:
-        track_history = TrackHistory.query.filter_by(track_history_id=id).first()
+#     if id is not None:
+#         track_history = TrackHistory.query.filter_by(track_history_id=id).first()
+#         if track_history:
+#             obj = {
+#                 "id": track_history.track_history_id,
+#                 "description_id": track_history.description_id,
+#                 "synoptic_time": track_history.synoptic_time,
+#                 "latitude": track_history.latitude,
+#                 "longitude": track_history.longitude,
+#                 "intensity": track_history.intensity,
+#                 "created_by": str(track_history.created_by),
+#                 "updated_by": str(track_history.updated_by)
+#             }
+
+#             data = {
+#                 "message": "get track history by id",
+#                 "trackHistory": obj
+#             }
+#             return make_response(data, 200)
+#         else:
+#             data = {
+#                 "message": "get track history by id",
+#                 "trackHistory": {}
+#             }
+#             return make_response(data, 200)
+
+@app.route('/api/track-history/<descriptionId>', methods=['GET'])
+def get_track_history_by_id(descriptionId):
+    description_id = request.view_args["descriptionId"]
+
+    if description_id is not None:
+        track_history = TrackHistory.query.filter_by(description_id=description_id).first()
         if track_history:
             obj = {
                 "id": track_history.track_history_id,
@@ -66,13 +96,13 @@ def get_track_history_by_id(id):
             }
 
             data = {
-                "message": "get track history by id",
+                "message": "get track history by description_id",
                 "trackHistory": obj
             }
             return make_response(data, 200)
         else:
             data = {
-                "message": "get track history by id",
+                "message": "get track history by description_id",
                 "trackHistory": {}
             }
             return make_response(data, 200)
