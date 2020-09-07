@@ -29,6 +29,7 @@ $ flask run
 // create db migration
 $ python3 manage.py db init
 $ python3 manage.py db migrate
+$ python3 manage.py db upgrade
 
 // run cron job
 $ celery worker -A app.celery --loglevel=info --purge
