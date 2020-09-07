@@ -38,8 +38,9 @@ def get_scrape_web_data(TropicalCyclone, ForecastTrack, TrackHistory, db):
             image_src = 'https://rammb-data.cira.colostate.edu/' + images['src']
             formatted_images_list.append(image_src)
 
-    # combined_list
+    # tropical_cyclone table
     if places_list and formatted_description_text_list and description_id_list and formatted_images_list:
+        # combined_list
         combined_list = [list(e) for e in zip(places_list, formatted_description_text_list, description_id_list, formatted_images_list)]
         for item in combined_list:
             place = item[0]
