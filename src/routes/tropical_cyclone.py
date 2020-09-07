@@ -28,6 +28,7 @@ def get_all_tropical_cyclone():
     formatted_tropical_cyclone_list = []
     for tropical_cyclone in tropical_cyclone_list:
         obj = {
+            "id": tropical_cyclone.tropical_cyclone_id,
             "place": tropical_cyclone.place,
             "description_text": tropical_cyclone.description_text,
             "image": tropical_cyclone.image,
@@ -50,6 +51,7 @@ def get_tropical_cyclone_by_id(id):
         tropical_cyclone = TropicalCyclone.query.filter_by(tropical_cyclone_id=id).first()
         if tropical_cyclone:
             obj = {
+                "id": tropical_cyclone.tropical_cyclone_id,
                 "place": tropical_cyclone.place,
                 "description_text": tropical_cyclone.description_text,
                 "image": tropical_cyclone.image,
@@ -81,9 +83,12 @@ def update_tropical_cyclone_by_id(id):
                 description_text = request.json['descriptionText']
                 image = request.json['image']
 
+                now = datetime.now()
+
                 tropical_cyclone.place = place
                 tropical_cyclone.description_text = description_text
                 tropical_cyclone.image = image
+                tropical_cyclone.updated_by = now
 
                 db.session.commit()
 
