@@ -39,7 +39,11 @@ def get_scrape_web_data(TropicalCyclone, db):
             description_text = item[1]
             image = item[2]
             now = datetime.now()
-            
-            tropical_cyclone = TropicalCyclone(place, description_text, image, now, now)
-            db.session.add(tropical_cyclone)
-            db.session.commit()
+
+            # add record to db
+            existing_tropical_cyclone = TropicalCyclone.query.filter_by(description_text=description_text).first()
+            print('existing_tropical_cyclone = ', existing_tropical_cyclone)
+            if existing_tropical_cyclone is None:
+                tropical_cyclone = TropicalCyclone(place, description_text, image, now, now)
+                db.session.add(tropical_cyclone)
+                db.session.commit()
