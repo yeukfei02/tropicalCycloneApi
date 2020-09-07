@@ -43,7 +43,7 @@ def get_all_forecast_track():
 
     data = {
         "message": "get all forecast track",
-        "ForecastTracks": formatted_forecast_track_list
+        "forecastTracks": formatted_forecast_track_list
     }
     return make_response(data, 200)
 
@@ -67,13 +67,13 @@ def get_forecast_track_by_id(id):
 
             data = {
                 "message": "get forecast track by id",
-                "ForecastTrack": obj
+                "forecastTrack": obj
             }
             return make_response(data, 200)
         else:
             data = {
                 "message": "get forecast track by id",
-                "ForecastTrack": {}
+                "forecastTrack": {}
             }
             return make_response(data, 200)
 

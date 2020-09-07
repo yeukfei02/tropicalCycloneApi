@@ -43,7 +43,7 @@ def get_all_track_history():
 
     data = {
         "message": "get all track history",
-        "TrackHistorys": formatted_track_history_list
+        "trackHistorys": formatted_track_history_list
     }
     return make_response(data, 200)
 
@@ -67,13 +67,13 @@ def get_track_history_by_id(id):
 
             data = {
                 "message": "get track history by id",
-                "TrackHistory": obj
+                "trackHistory": obj
             }
             return make_response(data, 200)
         else:
             data = {
                 "message": "get track history by id",
-                "TrackHistory": {}
+                "trackHistory": {}
             }
             return make_response(data, 200)
 
