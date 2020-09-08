@@ -81,31 +81,29 @@ def get_all_forecast_track():
 def get_forecast_track_by_description_id(descriptionId):
     description_id = request.view_args["descriptionId"]
 
-    if id is not None:
-        forecast_track = ForecastTrack.query.filter_by(description_id=description_id).first()
-        if forecast_track:
-            obj = {
-                "id": forecast_track.forecast_track_id,
-                "description_id": forecast_track.description_id,
-                "forecast_hour": forecast_track.forecast_hour,
-                "latitude": forecast_track.latitude,
-                "longitude": forecast_track.longitude,
-                "intensity": forecast_track.intensity,
-                "created_by": str(forecast_track.created_by),
-                "updated_by": str(forecast_track.updated_by)
-            }
+    if description_id is not None:
+        forecast_track_list = ForecastTrack.query.order_by(ForecastTrack.forecast_track_id).all()
 
-            data = {
-                "message": "get forecast track by description_id",
-                "forecastTrack": obj
-            }
-            return make_response(data, 200)
-        else:
-            data = {
-                "message": "get forecast track by description_id",
-                "forecastTrack": {}
-            }
-            return make_response(data, 200)
+        formatted_forecast_track_list = []
+        for forecast_track in forecast_track_list:
+            if forecast_track.description_id == description_id:
+                obj = {
+                    "id": forecast_track.forecast_track_id,
+                    "description_id": forecast_track.description_id,
+                    "forecast_hour": forecast_track.forecast_hour,
+                    "latitude": forecast_track.latitude,
+                    "longitude": forecast_track.longitude,
+                    "intensity": forecast_track.intensity,
+                    "created_by": str(forecast_track.created_by),
+                    "updated_by": str(forecast_track.updated_by)
+                }
+                formatted_forecast_track_list.append(obj)
+
+        data = {
+            "message": "get all forecast track",
+            "forecastTracks": formatted_forecast_track_list
+        }
+        return make_response(data, 200)
 
 @app.route('/api/forecast-track/<id>', methods=['PUT'])
 def update_forecast_track_by_id(id):
