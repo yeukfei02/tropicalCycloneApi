@@ -19,6 +19,7 @@ else:
     CELERY_BROKER_URL = "redis://redis:6379/0"
     CELERY_RESULT_BACKEND = "redis://redis:6379/0"
 
+
 def make_celery(app):
     app.config['CELERY_BROKER_URL'] = CELERY_BROKER_URL
     app.config['CELERY_RESULT_BACKEND'] = CELERY_RESULT_BACKEND
@@ -32,12 +33,15 @@ def make_celery(app):
     app.config['CELERY_TRACK_STARTED'] = True
     app.config['CELERY_SEND_EVENTS'] = True
 
-    celery = Celery(app.import_name, backend=CELERY_RESULT_BACKEND, broker=CELERY_BROKER_URL)
+    celery = Celery(app.import_name, backend=CELERY_RESULT_BACKEND,
+                    broker=CELERY_BROKER_URL)
     celery.conf.update(app.config)
 
     TaskBase = celery.Task
+
     class ContextTask(TaskBase):
         abstract = True
+
         def __call__(self, *args, **kwargs):
             with app.app_context():
                 return TaskBase.__call__(self, *args, **kwargs)
@@ -45,9 +49,11 @@ def make_celery(app):
 
     return celery
 
+
 celery = make_celery(app)
 
-@celery.task(name = "periodic_task")
+
+@celery.task(name="periodic_task")
 def periodic_task():
     print("get_scrape_web_data start")
     get_scrape_web_data(TropicalCyclone, ForecastTrack, TrackHistory, db)

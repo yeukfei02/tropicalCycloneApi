@@ -1,5 +1,6 @@
 from app import db
 
+
 class TrackHistory(db.Model):
     __tablename__ = 'track_history'
 
@@ -20,6 +21,7 @@ class TrackHistory(db.Model):
         self.intensity = intensity
         self.created_by = created_by
         self.updated_by = updated_by
+
 
 db.create_all()
 db.session.commit()

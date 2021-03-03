@@ -4,6 +4,7 @@ from datetime import datetime
 
 from src.models.ForecastTrack import *
 
+
 @app.route('/api/forecast-track', methods=['POST'])
 def create_forecast_track():
     if request.json:
@@ -14,7 +15,8 @@ def create_forecast_track():
         intensity = request.json['intensity']
         now = datetime.now()
 
-        forecast_track = ForecastTrack(description_id, forecast_hour, latitude, longitude, intensity, now, now)
+        forecast_track = ForecastTrack(
+            description_id, forecast_hour, latitude, longitude, intensity, now, now)
         db.session.add(forecast_track)
         db.session.commit()
 
@@ -23,9 +25,11 @@ def create_forecast_track():
     }
     return make_response(data, 201)
 
+
 @app.route('/api/forecast-track', methods=['GET'])
 def get_all_forecast_track():
-    forecast_track_list = ForecastTrack.query.order_by(ForecastTrack.forecast_track_id).all()
+    forecast_track_list = ForecastTrack.query.order_by(
+        ForecastTrack.forecast_track_id).all()
 
     formatted_forecast_track_list = []
     for forecast_track in forecast_track_list:
@@ -77,12 +81,14 @@ def get_all_forecast_track():
 #             }
 #             return make_response(data, 200)
 
+
 @app.route('/api/forecast-track/<descriptionId>', methods=['GET'])
 def get_forecast_track_by_description_id(descriptionId):
     description_id = request.view_args["descriptionId"]
 
     if description_id is not None:
-        forecast_track_list = ForecastTrack.query.order_by(ForecastTrack.forecast_track_id).all()
+        forecast_track_list = ForecastTrack.query.order_by(
+            ForecastTrack.forecast_track_id).all()
 
         formatted_forecast_track_list = []
         for forecast_track in forecast_track_list:
@@ -105,12 +111,14 @@ def get_forecast_track_by_description_id(descriptionId):
         }
         return make_response(data, 200)
 
+
 @app.route('/api/forecast-track/<id>', methods=['PUT'])
 def update_forecast_track_by_id(id):
     id = request.view_args["id"]
 
     if id is not None:
-        forecast_track = ForecastTrack.query.filter_by(forecast_track_id=id).first()
+        forecast_track = ForecastTrack.query.filter_by(
+            forecast_track_id=id).first()
         if forecast_track:
             if request.json:
                 description_id = request.json['descriptionId']
@@ -140,12 +148,14 @@ def update_forecast_track_by_id(id):
             }
             return make_response(data, 200)
 
+
 @app.route('/api/forecast-track/<id>', methods=['DELETE'])
 def delete_forecast_track_by_id(id):
     id = request.view_args["id"]
 
     if id is not None:
-        forecast_track = ForecastTrack.query.filter_by(forecast_track_id=id).first()
+        forecast_track = ForecastTrack.query.filter_by(
+            forecast_track_id=id).first()
         if forecast_track:
             db.session.delete(forecast_track)
             db.session.commit()

@@ -1,5 +1,6 @@
 from app import db
 
+
 class ForecastTrack(db.Model):
     __tablename__ = 'forecast_track'
 
@@ -20,6 +21,7 @@ class ForecastTrack(db.Model):
         self.intensity = intensity
         self.created_by = created_by
         self.updated_by = updated_by
+
 
 db.create_all()
 db.session.commit()

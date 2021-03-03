@@ -4,6 +4,7 @@ from datetime import datetime
 
 from src.models.TrackHistory import *
 
+
 @app.route('/api/track-history', methods=['POST'])
 def create_track_history():
     if request.json:
@@ -14,7 +15,8 @@ def create_track_history():
         intensity = request.json['intensity']
         now = datetime.now()
 
-        track_history = TrackHistory(description_id, synoptic_time, latitude, longitude, intensity, now, now)
+        track_history = TrackHistory(
+            description_id, synoptic_time, latitude, longitude, intensity, now, now)
         db.session.add(track_history)
         db.session.commit()
 
@@ -23,9 +25,11 @@ def create_track_history():
     }
     return make_response(data, 201)
 
+
 @app.route('/api/track-history', methods=['GET'])
 def get_all_track_history():
-    track_history_list = TrackHistory.query.order_by(TrackHistory.track_history_id).all()
+    track_history_list = TrackHistory.query.order_by(
+        TrackHistory.track_history_id).all()
 
     formatted_track_history_list = []
     for track_history in track_history_list:
@@ -77,12 +81,14 @@ def get_all_track_history():
 #             }
 #             return make_response(data, 200)
 
+
 @app.route('/api/track-history/<descriptionId>', methods=['GET'])
 def get_track_history_by_id(descriptionId):
     description_id = request.view_args["descriptionId"]
 
     if description_id is not None:
-        track_history_list = TrackHistory.query.order_by(TrackHistory.track_history_id).all()
+        track_history_list = TrackHistory.query.order_by(
+            TrackHistory.track_history_id).all()
 
         formatted_track_history_list = []
         for track_history in track_history_list:
@@ -105,12 +111,14 @@ def get_track_history_by_id(descriptionId):
         }
         return make_response(data, 200)
 
+
 @app.route('/api/track-history/<id>', methods=['PUT'])
 def update_track_history_by_id(id):
     id = request.view_args["id"]
 
     if id is not None:
-        track_history = TrackHistory.query.filter_by(track_history_id=id).first()
+        track_history = TrackHistory.query.filter_by(
+            track_history_id=id).first()
         if track_history:
             if request.json:
                 description_id = request.json['descriptionId']
@@ -140,12 +148,14 @@ def update_track_history_by_id(id):
             }
             return make_response(data, 200)
 
+
 @app.route('/api/track-history/<id>', methods=['DELETE'])
 def delete_track_history_by_id(id):
     id = request.view_args["id"]
 
     if id is not None:
-        track_history = TrackHistory.query.filter_by(track_history_id=id).first()
+        track_history = TrackHistory.query.filter_by(
+            track_history_id=id).first()
         if track_history:
             db.session.delete(track_history)
             db.session.commit()

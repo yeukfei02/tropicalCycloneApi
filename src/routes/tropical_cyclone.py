@@ -4,6 +4,7 @@ from datetime import datetime
 
 from src.models.TropicalCyclone import *
 
+
 @app.route('/api/tropical-cyclone', methods=['POST'])
 def create_tropical_cyclone():
     if request.json:
@@ -13,7 +14,8 @@ def create_tropical_cyclone():
         image = request.json['image']
         now = datetime.now()
 
-        tropical_cyclone = TropicalCyclone(place, description_id, description_text, image, now, now)
+        tropical_cyclone = TropicalCyclone(
+            place, description_id, description_text, image, now, now)
         db.session.add(tropical_cyclone)
         db.session.commit()
 
@@ -22,9 +24,11 @@ def create_tropical_cyclone():
     }
     return make_response(data, 201)
 
+
 @app.route('/api/tropical-cyclone', methods=['GET'])
 def get_all_tropical_cyclone():
-    tropical_cyclone_list = TropicalCyclone.query.order_by(TropicalCyclone.tropical_cyclone_id).all()
+    tropical_cyclone_list = TropicalCyclone.query.order_by(
+        TropicalCyclone.tropical_cyclone_id).all()
 
     formatted_tropical_cyclone_list = []
     for tropical_cyclone in tropical_cyclone_list:
@@ -45,12 +49,14 @@ def get_all_tropical_cyclone():
     }
     return make_response(data, 200)
 
+
 @app.route('/api/tropical-cyclone/<id>', methods=['GET'])
 def get_tropical_cyclone_by_id(id):
     id = request.view_args["id"]
 
     if id is not None:
-        tropical_cyclone = TropicalCyclone.query.filter_by(tropical_cyclone_id=id).first()
+        tropical_cyclone = TropicalCyclone.query.filter_by(
+            tropical_cyclone_id=id).first()
         if tropical_cyclone:
             obj = {
                 "id": tropical_cyclone.tropical_cyclone_id,
@@ -74,12 +80,14 @@ def get_tropical_cyclone_by_id(id):
             }
             return make_response(data, 200)
 
+
 @app.route('/api/tropical-cyclone/<id>', methods=['PUT'])
 def update_tropical_cyclone_by_id(id):
     id = request.view_args["id"]
 
     if id is not None:
-        tropical_cyclone = TropicalCyclone.query.filter_by(tropical_cyclone_id=id).first()
+        tropical_cyclone = TropicalCyclone.query.filter_by(
+            tropical_cyclone_id=id).first()
         if tropical_cyclone:
             if request.json:
                 place = request.json['place']
@@ -107,12 +115,14 @@ def update_tropical_cyclone_by_id(id):
             }
             return make_response(data, 200)
 
+
 @app.route('/api/tropical-cyclone/<id>', methods=['DELETE'])
 def delete_tropical_cyclone_by_id(id):
     id = request.view_args["id"]
 
     if id is not None:
-        tropical_cyclone = TropicalCyclone.query.filter_by(tropical_cyclone_id=id).first()
+        tropical_cyclone = TropicalCyclone.query.filter_by(
+            tropical_cyclone_id=id).first()
         if tropical_cyclone:
             db.session.delete(tropical_cyclone)
             db.session.commit()
