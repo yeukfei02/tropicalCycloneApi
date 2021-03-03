@@ -1,3 +1,5 @@
+from app import db
+from src.models.TrackHistory import *
 import unittest
 from datetime import datetime
 
@@ -5,15 +7,14 @@ import os
 import sys
 sys.path.insert(1, os.getcwd())
 
-from src.models.TrackHistory import *
-from app import db
 
 class TrackHistoryTest(unittest.TestCase):
     id = 0
-    
+
     @classmethod
     def setUpClass(cls):
-        last_track_history = TrackHistory.query.order_by(TrackHistory.track_history_id.desc()).first()
+        last_track_history = TrackHistory.query.order_by(
+            TrackHistory.track_history_id.desc()).first()
         if last_track_history:
             cls.id = last_track_history.track_history_id
 
@@ -27,7 +28,8 @@ class TrackHistoryTest(unittest.TestCase):
         intensity = 50
         now = datetime.now()
 
-        track_history = TrackHistory(description_id, synoptic_time, latitude, longitude, intensity, now, now)
+        track_history = TrackHistory(
+            description_id, synoptic_time, latitude, longitude, intensity, now, now)
         db.session.add(track_history)
         db.session.commit()
 
@@ -41,13 +43,14 @@ class TrackHistoryTest(unittest.TestCase):
             self.assertIsNotNone(track_history.intensity)
             self.assertIsNotNone(str(track_history.created_by))
             self.assertIsNotNone(str(track_history.updated_by))
-        
+
         print('test_001_create_track_history end')
 
     def test_002_get_track_history(self):
         print('test_002_get_track_history start')
 
-        track_history_list = TrackHistory.query.order_by(TrackHistory.track_history_id).all()
+        track_history_list = TrackHistory.query.order_by(
+            TrackHistory.track_history_id).all()
 
         self.assertTrue(track_history_list is not None)
 
@@ -60,13 +63,14 @@ class TrackHistoryTest(unittest.TestCase):
                 self.assertIsNotNone(track_history.intensity)
                 self.assertIsNotNone(str(track_history.created_by))
                 self.assertIsNotNone(str(track_history.updated_by))
-        
+
         print('test_002_get_track_history end')
 
     def test_003_get_track_history_by_id(self):
         print('test_003_get_track_history_by_id start')
 
-        track_history = TrackHistory.query.filter_by(track_history_id=self.id).first()
+        track_history = TrackHistory.query.filter_by(
+            track_history_id=self.id).first()
 
         self.assertTrue(track_history is not None)
 
@@ -78,13 +82,14 @@ class TrackHistoryTest(unittest.TestCase):
             self.assertIsNotNone(track_history.intensity)
             self.assertIsNotNone(str(track_history.created_by))
             self.assertIsNotNone(str(track_history.updated_by))
-        
+
         print('test_003_get_track_history_by_id end')
 
     def test_004_update_track_history_by_id(self):
         print('test_004_update_track_history_by_id start')
 
-        track_history = TrackHistory.query.filter_by(track_history_id=self.id).first()
+        track_history = TrackHistory.query.filter_by(
+            track_history_id=self.id).first()
 
         self.assertTrue(track_history is not None)
 
@@ -112,13 +117,14 @@ class TrackHistoryTest(unittest.TestCase):
             self.assertIsNotNone(track_history.intensity)
             self.assertIsNotNone(str(track_history.created_by))
             self.assertIsNotNone(str(track_history.updated_by))
-        
+
         print('test_004_update_track_history_by_id end')
 
     def test_005_delete_track_history_by_id(self):
         print('test_005_delete_track_history_by_id start')
 
-        track_history = TrackHistory.query.filter_by(track_history_id=self.id).first()
+        track_history = TrackHistory.query.filter_by(
+            track_history_id=self.id).first()
 
         self.assertTrue(track_history is not None)
 
@@ -127,6 +133,7 @@ class TrackHistoryTest(unittest.TestCase):
             db.session.commit()
 
         print('test_005_delete_track_history_by_id end')
+
 
 if __name__ == '__main__':
     unittest.main()

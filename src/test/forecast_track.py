@@ -1,3 +1,5 @@
+from app import db
+from src.models.ForecastTrack import *
 import unittest
 from datetime import datetime
 
@@ -5,15 +7,14 @@ import os
 import sys
 sys.path.insert(1, os.getcwd())
 
-from src.models.ForecastTrack import *
-from app import db
 
 class ForecastTrackTest(unittest.TestCase):
     id = 0
-    
+
     @classmethod
     def setUpClass(cls):
-        last_forecast_track = ForecastTrack.query.order_by(ForecastTrack.forecast_track_id.desc()).first()
+        last_forecast_track = ForecastTrack.query.order_by(
+            ForecastTrack.forecast_track_id.desc()).first()
         if last_forecast_track:
             cls.id = last_forecast_track.forecast_track_id
 
@@ -27,7 +28,8 @@ class ForecastTrackTest(unittest.TestCase):
         intensity = 30
         now = datetime.now()
 
-        forecast_track = ForecastTrack(description_id, forecast_hour, latitude, longitude, intensity, now, now)
+        forecast_track = ForecastTrack(
+            description_id, forecast_hour, latitude, longitude, intensity, now, now)
         db.session.add(forecast_track)
         db.session.commit()
 
@@ -41,13 +43,14 @@ class ForecastTrackTest(unittest.TestCase):
             self.assertIsNotNone(forecast_track.intensity)
             self.assertIsNotNone(str(forecast_track.created_by))
             self.assertIsNotNone(str(forecast_track.updated_by))
-        
+
         print('test_001_create_forecast_track end')
 
     def test_002_get_forecast_track(self):
         print('test_002_get_forecast_track start')
 
-        forecast_track_list = ForecastTrack.query.order_by(ForecastTrack.forecast_track_id).all()
+        forecast_track_list = ForecastTrack.query.order_by(
+            ForecastTrack.forecast_track_id).all()
 
         self.assertTrue(forecast_track_list is not None)
 
@@ -60,13 +63,14 @@ class ForecastTrackTest(unittest.TestCase):
                 self.assertIsNotNone(forecast_track.intensity)
                 self.assertIsNotNone(str(forecast_track.created_by))
                 self.assertIsNotNone(str(forecast_track.updated_by))
-        
+
         print('test_002_get_forecast_track end')
 
     def test_003_get_forecast_track_by_id(self):
         print('test_003_get_forecast_track_by_id start')
 
-        forecast_track = ForecastTrack.query.filter_by(forecast_track_id=self.id).first()
+        forecast_track = ForecastTrack.query.filter_by(
+            forecast_track_id=self.id).first()
 
         self.assertTrue(forecast_track is not None)
 
@@ -78,13 +82,14 @@ class ForecastTrackTest(unittest.TestCase):
             self.assertIsNotNone(forecast_track.intensity)
             self.assertIsNotNone(str(forecast_track.created_by))
             self.assertIsNotNone(str(forecast_track.updated_by))
-        
+
         print('test_003_get_forecast_track_by_id end')
 
     def test_004_update_forecast_track_by_id(self):
         print('test_004_update_forecast_track_by_id start')
 
-        forecast_track = ForecastTrack.query.filter_by(forecast_track_id=self.id).first()
+        forecast_track = ForecastTrack.query.filter_by(
+            forecast_track_id=self.id).first()
 
         self.assertTrue(forecast_track is not None)
 
@@ -112,13 +117,14 @@ class ForecastTrackTest(unittest.TestCase):
             self.assertIsNotNone(forecast_track.intensity)
             self.assertIsNotNone(str(forecast_track.created_by))
             self.assertIsNotNone(str(forecast_track.updated_by))
-        
+
         print('test_004_update_forecast_track_by_id end')
 
     def test_005_delete_forecast_track_by_id(self):
         print('test_005_delete_forecast_track_by_id start')
 
-        forecast_track = ForecastTrack.query.filter_by(forecast_track_id=self.id).first()
+        forecast_track = ForecastTrack.query.filter_by(
+            forecast_track_id=self.id).first()
 
         self.assertTrue(forecast_track is not None)
 
@@ -127,6 +133,7 @@ class ForecastTrackTest(unittest.TestCase):
             db.session.commit()
 
         print('test_005_delete_forecast_track_by_id end')
+
 
 if __name__ == '__main__':
     unittest.main()

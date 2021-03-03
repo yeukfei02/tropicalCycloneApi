@@ -1,5 +1,6 @@
 from app import db
 
+
 class TropicalCyclone(db.Model):
     __tablename__ = 'tropical_cyclone'
 
@@ -18,6 +19,7 @@ class TropicalCyclone(db.Model):
         self.image = image
         self.created_by = created_by
         self.updated_by = updated_by
+
 
 db.create_all()
 db.session.commit()

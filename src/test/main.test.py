@@ -1,24 +1,28 @@
+from src.test.track_history import TrackHistoryTest
+from src.test.forecast_track import ForecastTrackTest
+from src.test.tropical_cyclone import TropicalCycloneTest
 import unittest
 
 import os
 import sys
 sys.path.insert(1, os.getcwd())
 
-from src.test.tropical_cyclone import TropicalCycloneTest
-from src.test.forecast_track import ForecastTrackTest
-from src.test.track_history import TrackHistoryTest
 
 def test_suite():
-    suite = unittest.defaultTestLoader.loadTestsFromTestCase(TropicalCycloneTest)
+    suite = unittest.defaultTestLoader.loadTestsFromTestCase(
+        TropicalCycloneTest)
     return suite
+
 
 def test_suite2():
     suite = unittest.defaultTestLoader.loadTestsFromTestCase(ForecastTrackTest)
     return suite
 
+
 def test_suite3():
     suite = unittest.defaultTestLoader.loadTestsFromTestCase(TrackHistoryTest)
     return suite
+
 
 if __name__ == '__main__':
     runner = unittest.TextTestRunner()

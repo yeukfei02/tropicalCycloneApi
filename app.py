@@ -1,3 +1,8 @@
+from src.cron.cron import *
+from src.routes.track_history import *
+from src.routes.forecast_track import *
+from src.routes.tropical_cyclone import *
+from src.routes.main import *
 from flask import Flask, request, make_response
 from flask_sqlalchemy import SQLAlchemy
 import os
@@ -28,18 +33,14 @@ else:
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://{}:{}@{}:{}/{}'.format(DB_CONFIG['user'], DB_CONFIG['pw'], DB_CONFIG['host'], DB_CONFIG['port'], DB_CONFIG['db'])
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://{}:{}@{}:{}/{}'.format(
+    DB_CONFIG['user'], DB_CONFIG['pw'], DB_CONFIG['host'], DB_CONFIG['port'], DB_CONFIG['db'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # routes
-from src.routes.main import *
-from src.routes.tropical_cyclone import *
-from src.routes.forecast_track import *
-from src.routes.track_history import *
 
 # celery cron job
-from src.cron.cron import *
 
 if __name__ == '__main__':
     if flask_env == 'development':
