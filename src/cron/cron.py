@@ -5,9 +5,9 @@ from datetime import timedelta
 from app import app, db
 
 from src.services.scrape_web import get_scrape_web_data
-from src.models.TropicalCyclone import *
-from src.models.ForecastTrack import *
-from src.models.TrackHistory import *
+from src.models.TropicalCyclone import TropicalCyclone
+from src.models.ForecastTrack import ForecastTrack
+from src.models.TrackHistory import TrackHistory
 
 flask_env = os.environ.get('FLASK_ENV')
 CELERY_BROKER_URL = ""

@@ -1,5 +1,5 @@
 from app import db
-from src.models.ForecastTrack import *
+from src.models.ForecastTrack import ForecastTrack
 import unittest
 from datetime import datetime
 

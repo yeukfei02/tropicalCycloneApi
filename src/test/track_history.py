@@ -1,5 +1,5 @@
 from app import db
-from src.models.TrackHistory import *
+from src.models.TrackHistory import TrackHistory
 import unittest
 from datetime import datetime
 
