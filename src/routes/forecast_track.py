@@ -1,8 +1,8 @@
-from flask import Flask, request, make_response
+from flask import request, make_response
 from app import app, db
 from datetime import datetime
 
-from src.models.ForecastTrack import *
+from src.models.ForecastTrack import ForecastTrack
 
 
 @app.route('/api/forecast-track', methods=['POST'])

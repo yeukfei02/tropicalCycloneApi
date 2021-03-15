@@ -1,9 +1,4 @@
-from src.cron.cron import *
-from src.routes.track_history import *
-from src.routes.forecast_track import *
-from src.routes.tropical_cyclone import *
-from src.routes.main import *
-from flask import Flask, request, make_response
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
 from waitress import serve
@@ -39,8 +34,13 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # routes
+from src.routes.main import *
+from src.routes.tropical_cyclone import *
+from src.routes.track_history import *
+from src.routes.forecast_track import *
 
 # celery cron job
+from src.cron.cron import *
 
 if __name__ == '__main__':
     if flask_env == 'development':

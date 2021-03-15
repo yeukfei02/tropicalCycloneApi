@@ -1,5 +1,5 @@
 from app import db
-from src.models.TropicalCyclone import *
+from src.models.TropicalCyclone import TropicalCyclone
 import unittest
 from datetime import datetime
 

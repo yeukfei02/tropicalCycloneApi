@@ -1,8 +1,8 @@
-from flask import Flask, request, make_response
+from flask import request, make_response
 from app import app, db
 from datetime import datetime
 
-from src.models.TrackHistory import *
+from src.models.TrackHistory import TrackHistory
 
 
 @app.route('/api/track-history', methods=['POST'])
