@@ -35,9 +35,9 @@ db = SQLAlchemy(app)
 
 # routes
 from src.routes.main import *
-from src.routes.tropical_cyclone import *
-from src.routes.track_history import *
-from src.routes.forecast_track import *
+from src.routes.tropicalCyclone import *
+from src.routes.trackHistory import *
+from src.routes.forecastTrack import *
 
 # celery cron job
 from src.cron.cron import *

@@ -1,6 +1,6 @@
-from src.test.track_history import TrackHistoryTest
-from src.test.forecast_track import ForecastTrackTest
-from src.test.tropical_cyclone import TropicalCycloneTest
+from src.test.tropicalCyclone import TropicalCycloneTest
+from src.test.forecastTrack import ForecastTrackTest
+from src.test.trackHistory import TrackHistoryTest
 import unittest
 
 import os
