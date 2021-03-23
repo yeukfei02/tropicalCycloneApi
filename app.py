@@ -9,7 +9,7 @@ from waitress import serve
 from dotenv import load_dotenv
 load_dotenv()
 
-flask_env = os.environ.get('FLASK_ENV')
+flask_env = os.getenv('FLASK_ENV')
 
 DB_CONFIG = {}
 if flask_env == 'development':

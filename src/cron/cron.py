@@ -9,7 +9,7 @@ from src.models.TropicalCyclone import TropicalCyclone
 from src.models.ForecastTrack import ForecastTrack
 from src.models.TrackHistory import TrackHistory
 
-flask_env = os.environ.get('FLASK_ENV')
+flask_env = os.getenv('FLASK_ENV')
 CELERY_BROKER_URL = ""
 CELERY_RESULT_BACKEND = ""
 if flask_env == 'development':
