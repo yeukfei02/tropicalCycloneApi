@@ -1,5 +1,8 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
+from flask_compress import Compress
+from flask_talisman import Talisman
 import os
 from waitress import serve
 
@@ -31,6 +34,9 @@ app.config["DEBUG"] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://{}:{}@{}:{}/{}'.format(
     DB_CONFIG['user'], DB_CONFIG['pw'], DB_CONFIG['host'], DB_CONFIG['port'], DB_CONFIG['db'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+CORS(app)
+Compress(app)
+Talisman(app)
 db = SQLAlchemy(app)
 
 # routes
@@ -46,4 +52,5 @@ if __name__ == '__main__':
     if flask_env == 'development':
         app.run()
     else:
+        print('server is running on production mode')
         serve(app, host="0.0.0.0", port=5000)
