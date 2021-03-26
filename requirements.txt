@@ -13,3 +13,4 @@ redis==3.5.3
 python-dotenv==0.14.0
 flower==0.9.5
 waitress==1.4.4
+gunicorn==20.0.4

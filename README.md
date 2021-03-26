@@ -5,14 +5,16 @@ tropicalCycloneApi
 documentation: https://documenter.getpostman.com/view/3827865/TVCiSR7Z
 
 ## Requirement:
- - install python(3.8)
- - install pip3
- - install pipenv
- - install celery
- - install postgres
- - install redis
+
+- install python(3.8)
+- install pip3
+- install pipenv
+- install celery
+- install postgres
+- install redis
 
 ## Testing and run:
+
 ```
 // use requirements.txt
 $ pip3 install -r requirements.txt
@@ -23,8 +25,10 @@ $ pipenv shell
 
 // run api
 $ python3 app.py
-or 
+or
 $ flask run
+or
+$ gunicorn app:app
 
 // create db migration
 $ python3 manage.py db init
