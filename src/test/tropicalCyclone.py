@@ -1,7 +1,7 @@
-from app import db
-from src.models.TropicalCyclone import TropicalCyclone
 import unittest
 from datetime import datetime
+from app import db
+from src.models.TropicalCyclone import TropicalCyclone
 
 import os
 import sys

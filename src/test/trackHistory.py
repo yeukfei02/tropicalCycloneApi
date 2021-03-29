@@ -1,7 +1,7 @@
-from app import db
-from src.models.TrackHistory import TrackHistory
 import unittest
 from datetime import datetime
+from app import db
+from src.models.TrackHistory import TrackHistory
 
 import os
 import sys

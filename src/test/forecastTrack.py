@@ -1,7 +1,7 @@
-from app import db
-from src.models.ForecastTrack import ForecastTrack
 import unittest
 from datetime import datetime
+from app import db
+from src.models.ForecastTrack import ForecastTrack
 
 import os
 import sys
