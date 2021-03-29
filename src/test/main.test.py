@@ -1,11 +1,12 @@
-from src.test.tropicalCyclone import TropicalCycloneTest
-from src.test.forecastTrack import ForecastTrackTest
-from src.test.trackHistory import TrackHistoryTest
 import unittest
 
 import os
 import sys
 sys.path.insert(1, os.getcwd())
+
+from src.test.trackHistory import TrackHistoryTest
+from src.test.forecastTrack import ForecastTrackTest
+from src.test.tropicalCyclone import TropicalCycloneTest
 
 
 def test_suite():
