@@ -28,7 +28,7 @@ $ python3 app.py
 or
 $ flask run
 or
-$ gunicorn app:app
+$ gunicorn app:app --reload
 
 // create db migration
 $ python3 manage.py db init
