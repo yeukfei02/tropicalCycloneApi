@@ -2,9 +2,9 @@
 
 tropicalCycloneApi
 
-documentation: https://documenter.getpostman.com/view/3827865/TVCiSR7Z
+documentation: <https://documenter.getpostman.com/view/3827865/TVCiSR7Z>
 
-## Requirement:
+## Requirement
 
 - install python(3.8)
 - install pip3
@@ -13,9 +13,9 @@ documentation: https://documenter.getpostman.com/view/3827865/TVCiSR7Z
 - install postgres
 - install redis
 
-## Testing and run:
+## Testing and run
 
-```
+```zsh
 // use requirements.txt
 $ pip3 install -r requirements.txt
 
@@ -47,9 +47,9 @@ open localhost:5555
 $ python3 src/test/main.test.py
 ```
 
-## Docker:
+## Docker
 
-```
+```zsh
 // build images and start container in one line
 docker-compose up -d --build
 
