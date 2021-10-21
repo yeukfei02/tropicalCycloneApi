@@ -8,7 +8,6 @@ documentation: <https://documenter.getpostman.com/view/3827865/TVCiSR7Z>
 
 - install python(3.8)
 - install pip3
-- install pipenv
 - install celery
 - install postgres
 - install redis
@@ -18,10 +17,6 @@ documentation: <https://documenter.getpostman.com/view/3827865/TVCiSR7Z>
 ```zsh
 // use requirements.txt
 $ pip3 install -r requirements.txt
-
-// use pipenv
-$ pipenv install
-$ pipenv shell
 
 // run api
 $ python3 app.py
